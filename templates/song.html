@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ song.title }} - Cuban Music Archive</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="header">
+        <h1>Cuban Music Archive</h1>
+    </header>
+
+    <div class="container">
+        <div class="song-card">
+            <h2 class="song-title">{{ song.title }}</h2>
+            <div class="metadata">
+                <span class="artist">{{ song.artist }}</span>
+                <span class="year">{{ song.year }}</span>
+            </div>
+            
+            <div class="content">
+                {{ song.content_html|safe }}
+            </div>
+
+            <div class="tags">
+                {% for tag in song.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
