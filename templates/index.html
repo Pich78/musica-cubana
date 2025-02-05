@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuban Music Archive</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <header class="header">
-        <h1>Cuban Music Archive</h1>
-        <div class="search-container">
-            <input type="search" id="searchInput" placeholder="Search 50,000 Cuban songs...">
-            <button id="searchButton">Search</button>
-        </div>
-    </header>
+<!-- Add lunr.js -->
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script>
+// Initialize search data
+const SEARCH_DATA = {{ search_data|tojson }};
+</script>
 
-    <div class="container">
-        <aside class="sidebar">
-            <h2>Filter by Tags</h2>
-            <div class="tag-cloud" id="tagFilters"></div>
-        </aside>
-
-        <main class="content">
-            <section class="latest-songs">
-                <h2>Latest Additions</h2>
-                <div class="song-list" id="latestSongs"></div>
-            </section>
-
-            <section class="search-results">
-                <h2>Search Results</h2>
-                <div class="song-list" id="searchResults"></div>
-            </section>
-        </main>
-    </div>
-
-    <script src="/static/js/search.js"></script>
-</body>
-</html>
+<!-- Update search container -->
+<div class="search-container">
+    <input type="search" id="searchInput" placeholder="Search 50,000 Cuban songs..." autocomplete="off">
+    <div class="search-stats" id="searchStats"></div>
+</div>
